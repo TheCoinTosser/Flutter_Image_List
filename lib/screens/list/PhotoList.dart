@@ -12,16 +12,11 @@ class PhotoList extends StatelessWidget{
     final imageWidthInPixels = mediaQueryData.retrieveScreenWidthInPixels(context);
     final imageHeightInPixels = (9 * imageWidthInPixels / 16).ceil();
 
-    final imageWidth = mediaQueryData.size.width;
-    final imageHeight = 9 * imageWidth / 16;
-
     return ListView.builder(
         itemCount: 1000,
         itemBuilder: (BuildContext context, int index){
             return ImageItem(
-              imageUrl: "https://i.picsum.photos/id/$index/$imageWidthInPixels/$imageHeightInPixels.jpg",
-              imageWidth: imageWidth,
-              imageHeight: imageHeight,
+              imageUrl: "https://i.picsum.photos/id/$index/$imageWidthInPixels/$imageHeightInPixels.jpg"
             );
         }
     );

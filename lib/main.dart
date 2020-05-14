@@ -6,7 +6,7 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
 
-  final String title = "Flutter Presentation";
+  final String title = "Photos";
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterpresentation/screens/list/easteregg/BrentRamboWidget.dart';
 
 import 'PhotoList.dart';
 
@@ -25,9 +26,32 @@ class PhotoListScaffoldAndroid extends StatelessWidget{
                 title: Text(
                     barTitle,
                     style: TextStyle(decorationColor: Colors.white)
-                )
+                ),
+                actions: <Widget>[
+                  Builder(builder: (context) =>
+                      IconButton(
+                        icon: Icon(Icons.card_giftcard),
+                        color: Colors.white,
+                        onPressed: () => onPresentIconTapped(context),
+                      )
+                  )
+                ],
             ),
             body: PhotoList()
+        )
+    );
+  }
+
+  void onPresentIconTapped(BuildContext context){
+    final scaffold = Scaffold.of(context);
+    scaffold.showSnackBar(
+        SnackBar(
+          content: BrentRamboWidget(),
+          duration: Duration(minutes: 1),
+          action: SnackBarAction(
+            label: "Dismiss",
+            onPressed: () => scaffold.hideCurrentSnackBar()
+          ),
         )
     );
   }

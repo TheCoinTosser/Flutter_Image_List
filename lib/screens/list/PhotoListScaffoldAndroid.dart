@@ -12,6 +12,8 @@ class PhotoListScaffoldAndroid extends StatelessWidget{
     @required this.barTitle
   });
 
+  bool _snackBarOpened = false;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,16 +45,24 @@ class PhotoListScaffoldAndroid extends StatelessWidget{
   }
 
   void onPresentIconTapped(BuildContext context){
+
     final scaffold = Scaffold.of(context);
-    scaffold.showSnackBar(
-        SnackBar(
-          content: BrentRamboWidget(),
-          duration: Duration(minutes: 1),
-          action: SnackBarAction(
-            label: "Dismiss",
-            onPressed: () => scaffold.hideCurrentSnackBar()
-          ),
-        )
-    );
+    if(_snackBarOpened){
+      scaffold.hideCurrentSnackBar();
+      
+    }else{
+      _snackBarOpened = true;
+      scaffold.showSnackBar(
+          SnackBar(
+            content: BrentRamboWidget(),
+            duration: Duration(minutes: 1),
+            action: SnackBarAction(
+                label: "Dismiss",
+                onPressed: () => scaffold.hideCurrentSnackBar()
+            ),
+          )
+
+      ).closed.then((value) => _snackBarOpened = false);
+    }
   }
 }

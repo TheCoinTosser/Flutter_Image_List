@@ -5,10 +5,10 @@ import 'package:flutterpresentation/screens/details/ImageDetailsScaffold.dart';
 class ImageItem extends StatelessWidget{
 
   static const EdgeInsets CARD_PADDING = EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8);
-  static const EdgeInsets CARD_MARGIN = EdgeInsets.only(left: 0.0, right: 0.0);
   static const Duration FADE_OUT_DURATION = Duration(milliseconds: 100);
   static const Duration FADE_IN_DURATION = Duration(milliseconds: 300);
-  static const CARD_ELEVATION = 10.0;
+  static const CARD_ELEVATION = 5.0;
+  static const CARD_ELEVATION_PRESSED = 20.0;
   static const CARD_RADIUS = 15.0;
 
   final String imageUrl;
@@ -19,38 +19,32 @@ class ImageItem extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: imageUrl,
-      child: Padding(
-        padding: CARD_PADDING,
-        child: GestureDetector(
-          onTap: () => Navigator.push(
+    return Padding(
+      padding: CARD_PADDING,
+      child: Hero(
+        tag: imageUrl,
+        child: RaisedButton(
+          elevation: CARD_ELEVATION,
+          clipBehavior: Clip.antiAlias,
+          padding: EdgeInsets.all(0.0),
+          color: Colors.white,
+          highlightElevation: CARD_ELEVATION_PRESSED,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(CARD_RADIUS)
+          ),
+          onPressed: () => Navigator.push(
               context,
               buildRoute(context)
           ),
           child: AspectRatio(
             aspectRatio: 16 / 9,
-            child: Card(
-              elevation: CARD_ELEVATION,
-              margin: CARD_MARGIN,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(CARD_RADIUS)),
-              child: ClipPath(
-                clipper: ShapeBorderClipper(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(CARD_RADIUS)
-                    )
-                ),
-                child: Center(
-                        child: FadeInImage(
-                            placeholder: AssetImage("assets/bird.png"),
-                            fadeOutDuration: FADE_OUT_DURATION,
-                            fadeInDuration: FADE_IN_DURATION,
-                            fit: BoxFit.fill,
-                            image: NetworkImage(imageUrl)
-                          )
-                        ),
+            child: FadeInImage.assetNetwork(
+                placeholder: "assets/bird.png",
+                fadeOutDuration: FADE_OUT_DURATION,
+                fadeInDuration: FADE_IN_DURATION,
+                fit: BoxFit.cover,
+                image: imageUrl
               ),
-            ),
           ),
         ),
       ),
@@ -65,13 +59,13 @@ class ImageItem extends StatelessWidget{
         );
       }
       default: {
-        return MaterialPageRoute(
-          builder: (_) => buildWidgetToLoadAfterTap()
+        return PageRouteBuilder(
+          pageBuilder: (_, __, ___) => buildWidgetToLoadAfterTap()
         );
       }
     }
   }
-  
+
   Widget buildWidgetToLoadAfterTap(){
     return ImageDetailsScaffold(imageUrl: imageUrl);
   }

@@ -10,7 +10,7 @@ class PhotoList extends StatelessWidget{
 
     final mediaQueryData = MediaQuery.of(context);
     final imageWidthInPixels = mediaQueryData.retrieveScreenWidthInPixels(context);
-    final imageHeightInPixels = (9 * imageWidthInPixels / 16).ceil();
+    final imageHeightInPixels = (3 * imageWidthInPixels / 4).ceil();
 
     return ListView.builder(
         itemCount: 1000,

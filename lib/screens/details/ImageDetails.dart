@@ -14,9 +14,11 @@ class ImageDetails extends StatelessWidget{
     return Column(
         children: <Widget>[
           Hero(
-              tag: imageUrl,
-              child: Image.network(imageUrl)
-          ),
+            tag: imageUrl,
+            child: AspectRatio(
+              aspectRatio: 4 / 3,
+              child: Image.network(imageUrl, fit: BoxFit.cover)
+            )),
           Material(
             child: Padding(
               padding: const EdgeInsets.all(16.0),

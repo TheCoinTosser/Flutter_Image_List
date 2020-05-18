@@ -19,7 +19,7 @@ class ImageDetailsScaffold extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     switch(Theme.of(context).platform){
-      case TargetPlatform.iOS: return ImageDetailsScaffoldCupertino(previousPageName: title, imageId: imageId, imageUrl: imageUrl);
+      case TargetPlatform.iOS: return ImageDetailsScaffoldCupertino(title: title, imageId: imageId, imageUrl: imageUrl);
       default: return ImageDetailsScaffoldAndroid(imageId: imageId, imageUrl: imageUrl);
     }
   }

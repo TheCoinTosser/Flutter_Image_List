@@ -24,8 +24,7 @@ class PhotoListScaffoldCupertino extends StatelessWidget{
   CupertinoNavigationBar buildNavigationBar(BuildContext context) {
     return CupertinoNavigationBar(
         middle: Text(
-            barTitle,
-            style: TextStyle(color: CupertinoColors.activeBlue)
+            barTitle
         )
     );
   }

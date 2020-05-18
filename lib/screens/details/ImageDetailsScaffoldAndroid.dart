@@ -23,17 +23,9 @@ class ImageDetailsScaffoldAndroid extends StatelessWidget{
             )
         ),
         home: Scaffold(
-          body: Stack(
-              children: [
-                IconButton(
-                  icon: Icon(Icons.arrow_back, color: Colors.white),
-                  onPressed: () => Navigator.of(context).maybePop(),
-                ),
-                ImageDetails(
-                    imageId: imageId,
-                    imageUrl: imageUrl
-                )
-              ]
+          body: ImageDetails(
+              imageId: imageId,
+              imageUrl: imageUrl
           )
         )
     );

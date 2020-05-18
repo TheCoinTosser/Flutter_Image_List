@@ -64,22 +64,27 @@ class _PhotoListState extends State<PhotoListScaffoldAndroid> {
             )
         ),
         home: Scaffold(
-            appBar: AppBar(
-              title: Text(
-                  barTitle,
-                  style: TextStyle(decorationColor: Colors.white)
-              ),
-              actions: <Widget>[
-                Builder(builder: (context) =>
-                    IconButton(
-                      icon: Icon(Icons.card_giftcard),
-                      color: Colors.white,
-                      onPressed: () => onPresentIconTapped(context),
+            body: CustomScrollView(
+              slivers: <Widget>[
+                SliverAppBar(
+                  title: Text(
+                      barTitle,
+                      style: TextStyle(decorationColor: Colors.white)
+                  ),
+                  floating: true,
+                  actions: <Widget>[
+                    Builder(builder: (context) =>
+                        IconButton(
+                          icon: Icon(Icons.card_giftcard),
+                          color: Colors.white,
+                          onPressed: () => onPresentIconTapped(context),
+                        )
                     )
-                )
+                  ],
+                ),
+                PhotoList()
               ],
-            ),
-            body: PhotoList()
+            )
         )
     );
   }

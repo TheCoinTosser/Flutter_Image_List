@@ -80,9 +80,9 @@ class ImageDetailsState extends State<ImageDetails>{
   }
 
   Widget buildSuccessWidget(ImageDetailsModel imageDetailsModel){
-    return Padding(
-      padding: EdgeInsets.all(16),
-      child: Flexible(
+    return Material(
+      child: Padding(
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterpresentation/screens/details/ImageDetailsModel.dart';
 import 'package:flutterpresentation/screens/details/ImageDetailsNetworking.dart';
+import 'package:flutterpresentation/widgets/animations/entrance_fader.dart';
 
 class ImageDetails extends StatefulWidget{
 
@@ -83,6 +84,7 @@ class ImageDetailsState extends State<ImageDetails>{
     return Material(
       child: Padding(
         padding: EdgeInsets.all(16),
+        child: EntranceFader(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -93,6 +95,7 @@ class ImageDetailsState extends State<ImageDetails>{
             buildText(imageDetailsModel.url)
           ],
         ),
+      ),
       ),
     );
   }

@@ -5,11 +5,13 @@ import 'package:flutterpresentation/screens/list/PhotoListScaffold.dart';
 
 class ImageDetailsScaffoldCupertino extends StatelessWidget{
 
-  final String title;
+  final String previousPageName;
+  final int imageId;
   final String imageUrl;
 
   ImageDetailsScaffoldCupertino({
-    @required this.title,
+    @required this.previousPageName,
+    @required this.imageId,
     @required this.imageUrl
   });
 
@@ -18,7 +20,7 @@ class ImageDetailsScaffoldCupertino extends StatelessWidget{
     return CupertinoPageScaffold(
           navigationBar: buildNavigationBar(context),
           child: SafeArea(
-              child: ImageDetails(imageUrl: imageUrl)
+              child: ImageDetails(imageId: imageId, imageUrl: imageUrl)
           )
       );
   }
@@ -27,7 +29,7 @@ class ImageDetailsScaffoldCupertino extends StatelessWidget{
     return CupertinoNavigationBar(
       previousPageTitle: PhotoListScaffold.title,
       middle: Text(
-          title,
+          previousPageName,
           style: TextStyle(color: CupertinoColors.activeBlue)
       ),
     );

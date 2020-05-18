@@ -5,9 +5,11 @@ import 'ImageDetails.dart';
 
 class ImageDetailsScaffoldAndroid extends StatelessWidget{
 
+  final int imageId;
   final String imageUrl;
 
   ImageDetailsScaffoldAndroid({
+    @required this.imageId,
     @required this.imageUrl
   });
 
@@ -27,7 +29,10 @@ class ImageDetailsScaffoldAndroid extends StatelessWidget{
                   icon: Icon(Icons.arrow_back, color: Colors.white),
                   onPressed: () => Navigator.of(context).maybePop(),
                 ),
-                ImageDetails(imageUrl: imageUrl)
+                ImageDetails(
+                    imageId: imageId,
+                    imageUrl: imageUrl
+                )
               ]
           )
         )

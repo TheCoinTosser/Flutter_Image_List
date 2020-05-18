@@ -6,18 +6,21 @@ import 'ImageDetailsScaffoldAndroid.dart';
 
 class ImageDetailsScaffold extends StatelessWidget{
 
-  final String title = "Details";
+  static const String title = "Details";
+
+  final int imageId;
   final String imageUrl;
 
   ImageDetailsScaffold({
+    @required this.imageId,
     @required this.imageUrl
   });
 
   @override
   Widget build(BuildContext context) {
     switch(Theme.of(context).platform){
-      case TargetPlatform.iOS: return ImageDetailsScaffoldCupertino(title: title, imageUrl: imageUrl);
-      default: return ImageDetailsScaffoldAndroid(imageUrl: imageUrl);
+      case TargetPlatform.iOS: return ImageDetailsScaffoldCupertino(previousPageName: title, imageId: imageId, imageUrl: imageUrl);
+      default: return ImageDetailsScaffoldAndroid(imageId: imageId, imageUrl: imageUrl);
     }
   }
 }

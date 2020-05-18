@@ -113,7 +113,7 @@ class ImageDetailsState extends State<ImageDetails>{
   Widget buildTextTitle(String title){
     return Text(
         title,
-        style: TextStyle(fontSize: 30, fontFamily: "Stint Ultra Expanded")
+        style: TextStyle(fontSize: 25, fontFamily: "Stint Ultra Expanded")
     );
   }
 
@@ -121,7 +121,7 @@ class ImageDetailsState extends State<ImageDetails>{
     return Text(
         text,
         overflow: TextOverflow.clip,
-        style: TextStyle(fontSize: 30)
+        style: TextStyle(fontSize: 25)
     );
   }
 }

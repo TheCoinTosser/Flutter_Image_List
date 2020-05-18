@@ -34,10 +34,6 @@ class ImageDetailsState extends State<ImageDetails>{
 
   Future<ImageDetailsModel> futureImageDetailsModel;
 
-  bool showLoading = true;
-  bool showErrorView = true;
-  String author;
-
   @override
   void initState() {
     super.initState();

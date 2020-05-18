@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterpresentation/screens/details/ImageDetailsModel.dart';
 import 'package:flutterpresentation/screens/details/ImageDetailsNetworking.dart';
 import 'package:flutterpresentation/widgets/animations/entrance_fader.dart';
+import 'package:flutterpresentation/widgets/ui/ProgressIndicatorMultiplatform.dart';
 
 class ImageDetails extends StatefulWidget{
 
@@ -76,7 +77,7 @@ class ImageDetailsState extends State<ImageDetails>{
 
   Widget buildLoadingWidget(){
     return Expanded(
-      child: Center(child: CircularProgressIndicator())
+      child: Center(child: ProgressIndicatorMultiplatform.build(context))
     );
   }
 
@@ -85,17 +86,17 @@ class ImageDetailsState extends State<ImageDetails>{
       child: Padding(
         padding: EdgeInsets.all(16),
         child: EntranceFader(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            buildTextTitle("Author: "),
-            buildText(imageDetailsModel.author),
-            SizedBox(height: 25),
-            buildTextTitle("URL: "),
-            buildText(imageDetailsModel.url)
-          ],
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              buildTextTitle("Author: "),
+              buildText(imageDetailsModel.author),
+              SizedBox(height: 25),
+              buildTextTitle("URL: "),
+              buildText(imageDetailsModel.url)
+            ],
+          ),
         ),
-      ),
       ),
     );
   }

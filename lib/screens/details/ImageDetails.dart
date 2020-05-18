@@ -47,7 +47,7 @@ class ImageDetailsState extends State<ImageDetails>{
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: <Widget>[
         Hero(
             tag: imageUrl,
@@ -76,24 +76,33 @@ class ImageDetailsState extends State<ImageDetails>{
   }
 
   Widget buildLoadingWidget(){
-    return Expanded(
-      child: Center(child: ProgressIndicatorMultiplatform.build(context))
+    return Padding(
+      padding: const EdgeInsets.only(top: 40.0),
+      child: Center(child: ProgressIndicatorMultiplatform.build(context)),
     );
   }
 
   Widget buildSuccessWidget(ImageDetailsModel imageDetailsModel){
-    return Material(
-      child: Padding(
-        padding: EdgeInsets.all(16),
-        child: EntranceFader(
+    const VERTICAL_GAP = 25.0;
+
+    return EntranceFader(
+      child: Material(
+        child: Padding(
+          padding: EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
+            children: [
               buildTextTitle("Author: "),
-              buildText(imageDetailsModel.author),
-              SizedBox(height: 25),
-              buildTextTitle("URL: "),
-              buildText(imageDetailsModel.url)
+                buildText(imageDetailsModel.author),
+                SizedBox(height: VERTICAL_GAP),
+                buildTextTitle("URL: "),
+                buildText(imageDetailsModel.url),
+                SizedBox(height: VERTICAL_GAP),
+                buildTextTitle("Width: "),
+                buildText(imageDetailsModel.width.toString()),
+                SizedBox(height: VERTICAL_GAP),
+                buildTextTitle("Height: "),
+                buildText(imageDetailsModel.height.toString()),
             ],
           ),
         ),

@@ -4,7 +4,7 @@ import 'package:flutterpresentation/screens/list/easteregg/BrentRamboWidget.dart
 
 import 'PhotoList.dart';
 
-class PhotoListScaffoldAndroid extends StatelessWidget{
+class PhotoListScaffoldAndroid extends StatefulWidget{
 
   final String barTitle;
 
@@ -12,36 +12,24 @@ class PhotoListScaffoldAndroid extends StatelessWidget{
     @required this.barTitle
   });
 
-  bool _snackBarOpened = false;
+  @override
+  _PhotoListState createState() => _PhotoListState(barTitle: barTitle);
+}
+
+class _PhotoListState extends State<PhotoListScaffoldAndroid> {
+
+  final String barTitle;
+
+  _PhotoListState({
+    @required this.barTitle
+  });
+
+  bool _snackBarOpened;
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: ThemeData(
-            primarySwatch: Colors.lightBlue,
-            primaryTextTheme: TextTheme(
-                headline6: TextStyle(color: Colors.white)
-            )
-        ),
-        home: Scaffold(
-            appBar: AppBar(
-                title: Text(
-                    barTitle,
-                    style: TextStyle(decorationColor: Colors.white)
-                ),
-                actions: <Widget>[
-                  Builder(builder: (context) =>
-                      IconButton(
-                        icon: Icon(Icons.card_giftcard),
-                        color: Colors.white,
-                        onPressed: () => onPresentIconTapped(context),
-                      )
-                  )
-                ],
-            ),
-            body: PhotoList()
-        )
-    );
+  void initState() {
+    super.initState();
+    _snackBarOpened = false;
   }
 
   void onPresentIconTapped(BuildContext context){
@@ -49,7 +37,7 @@ class PhotoListScaffoldAndroid extends StatelessWidget{
     final scaffold = Scaffold.of(context);
     if(_snackBarOpened){
       scaffold.hideCurrentSnackBar();
-      
+
     }else{
       _snackBarOpened = true;
       scaffold.showSnackBar(
@@ -64,5 +52,35 @@ class PhotoListScaffoldAndroid extends StatelessWidget{
 
       ).closed.then((value) => _snackBarOpened = false);
     }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        theme: ThemeData(
+            primarySwatch: Colors.lightBlue,
+            primaryTextTheme: TextTheme(
+                headline6: TextStyle(color: Colors.white)
+            )
+        ),
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text(
+                  barTitle,
+                  style: TextStyle(decorationColor: Colors.white)
+              ),
+              actions: <Widget>[
+                Builder(builder: (context) =>
+                    IconButton(
+                      icon: Icon(Icons.card_giftcard),
+                      color: Colors.white,
+                      onPressed: () => onPresentIconTapped(context),
+                    )
+                )
+              ],
+            ),
+            body: PhotoList()
+        )
+    );
   }
 }

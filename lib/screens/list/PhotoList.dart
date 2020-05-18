@@ -15,8 +15,10 @@ class PhotoList extends StatelessWidget{
     return ListView.builder(
         itemCount: 1000,
         itemBuilder: (BuildContext context, int index){
+            final imageId = index + 10;
             return ImageItem(
-              imageUrl: "https://i.picsum.photos/id/${index + 10}/$imageWidthInPixels/$imageHeightInPixels.jpg"
+              imageId: imageId,
+              imageUrl: "https://i.picsum.photos/id/$imageId/$imageWidthInPixels/$imageHeightInPixels.jpg"
             );
         }
     );

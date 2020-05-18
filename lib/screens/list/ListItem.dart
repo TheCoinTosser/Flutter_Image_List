@@ -11,9 +11,11 @@ class ImageItem extends StatelessWidget{
   static const CARD_ELEVATION_PRESSED = 20.0;
   static const CARD_RADIUS = 15.0;
 
+  final int imageId;
   final String imageUrl;
 
   ImageItem({
+    @required this.imageId,
     @required this.imageUrl,
   });
 
@@ -67,6 +69,6 @@ class ImageItem extends StatelessWidget{
   }
 
   Widget buildWidgetToLoadAfterTap(){
-    return ImageDetailsScaffold(imageUrl: imageUrl);
+    return ImageDetailsScaffold(imageId: imageId, imageUrl: imageUrl);
   }
 }

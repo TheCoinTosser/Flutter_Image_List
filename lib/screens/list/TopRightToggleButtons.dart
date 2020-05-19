@@ -27,7 +27,8 @@ class TopRightToggleButtonsState extends State<TopRightToggleButtons>{
     super.initState();
 
     happyOrErrorBloc = BlocProvider.of<HappyOrErrorBloc>(context);
-    happyOrErrorBloc.forEach((lastSelectedIndex) => _updateUI(lastSelectedIndex));
+    _updateUI(happyOrErrorBloc.state);
+    happyOrErrorBloc.listen((lastSelectedIndex) => _updateUI(lastSelectedIndex));
   }
 
   @override

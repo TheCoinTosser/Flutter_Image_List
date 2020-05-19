@@ -18,6 +18,8 @@ environment:
 
 dependencies:
   http: ^0.12.1
+  bloc: ^4.0.0
+  flutter_bloc: ^4.0.0
   flutter:
     sdk: flutter
 

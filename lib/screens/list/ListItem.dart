@@ -54,18 +54,15 @@ class ImageItem extends StatelessWidget{
   }
 
   Route<dynamic> buildRoute(BuildContext context){
-    switch(Theme.of(context).platform){
-      case TargetPlatform.iOS:{
-        return CupertinoPageRoute(
-            builder: (_) => buildWidgetToLoadAfterTap()
-        );
-      }
-      default: {
-        return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => buildWidgetToLoadAfterTap()
-        );
-      }
+    if(Theme.of(context).platform == TargetPlatform.iOS){
+      return CupertinoPageRoute(
+          builder: (_) => buildWidgetToLoadAfterTap()
+      );
     }
+
+    return PageRouteBuilder(
+        pageBuilder: (_, __, ___) => buildWidgetToLoadAfterTap()
+    );
   }
 
   Widget buildWidgetToLoadAfterTap(){

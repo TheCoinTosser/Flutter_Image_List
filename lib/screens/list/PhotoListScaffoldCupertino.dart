@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'TopRightToggleButtons.dart';
 import 'PhotoList.dart';
 
 class PhotoListScaffoldCupertino extends StatelessWidget{
@@ -23,9 +24,8 @@ class PhotoListScaffoldCupertino extends StatelessWidget{
 
   CupertinoNavigationBar buildNavigationBar(BuildContext context) {
     return CupertinoNavigationBar(
-        middle: Text(
-            barTitle
-        )
+        middle: Text(barTitle),
+        trailing: TopRightToggleButtons(),
     );
   }
 }

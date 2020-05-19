@@ -1,0 +1,4 @@
+enum HappyOrErrorEvent{
+  ON_HAPPY_FACE_TAPPED,
+  ON_SKULL_TAPPED
+}

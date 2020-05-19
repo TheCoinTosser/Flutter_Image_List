@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterpresentation/screens/list/TopRightToggleButtons.dart';
 import 'package:flutterpresentation/screens/list/easteregg/BrentRamboWidget.dart';
 
 import 'PhotoList.dart';
@@ -59,6 +60,7 @@ class _PhotoListState extends State<PhotoListScaffoldAndroid> {
     return MaterialApp(
         theme: ThemeData(
             primarySwatch: Colors.lightBlue,
+            accentColor: Colors.deepOrangeAccent,
             primaryTextTheme: TextTheme(
                 headline6: TextStyle(color: Colors.white)
             )
@@ -73,18 +75,22 @@ class _PhotoListState extends State<PhotoListScaffoldAndroid> {
                   ),
                   floating: true,
                   actions: <Widget>[
-                    Builder(builder: (context) =>
-                        IconButton(
-                          icon: Icon(Icons.card_giftcard),
-                          color: Colors.white,
-                          onPressed: () => onPresentIconTapped(context),
-                        )
+                    Padding(
+                      padding: const EdgeInsets.only(right: TopRightToggleButtons.PADDING),
+                      child: TopRightToggleButtons(),
                     )
                   ],
                 ),
                 PhotoList()
               ],
-            )
+            ),
+            floatingActionButton: Builder(builder: (context) =>
+              FloatingActionButton(
+                child: Icon(Icons.card_giftcard),
+                foregroundColor: Colors.white,
+                onPressed: () => onPresentIconTapped(context)
+              ),
+            ),
         )
     );
   }

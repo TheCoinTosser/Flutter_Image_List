@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterpresentation/screens/details/ImageDetailsModel.dart';
 import 'package:flutterpresentation/screens/details/ImageDetailsNetworking.dart';
+import 'package:flutterpresentation/screens/list/state/happyorerror/HappyOrErrorBloc.dart';
+import 'package:flutterpresentation/screens/list/state/happyorerror/HappyOrErrorState.dart';
 import 'package:flutterpresentation/widgets/animations/entrance_fader.dart';
+import 'package:flutterpresentation/widgets/ui/AlertMultiplatform.dart';
 import 'package:flutterpresentation/widgets/ui/ProgressIndicatorMultiplatform.dart';
 
 class ImageDetails extends StatefulWidget{
@@ -32,12 +36,14 @@ class ImageDetailsState extends State<ImageDetails>{
     @required this.imageUrl
   });
 
+  HappyOrErrorBloc happyOrErrorBloc;
   Future<ImageDetailsModel> futureImageDetailsModel;
 
   @override
   void initState() {
     super.initState();
 
+    happyOrErrorBloc = BlocProvider.of<HappyOrErrorBloc>(context);
     futureImageDetailsModel = ImageDetailsNetworking.fetchImageDetails(imageId);
   }
 
@@ -62,10 +68,17 @@ class ImageDetailsState extends State<ImageDetails>{
 
   Widget buildImageDetailsUI(AsyncSnapshot<dynamic> snapshot){
     if (snapshot.hasData) {
+      //The API never fails... So I am introducing this just to show the error
+      //Widget sometimes.
+      if(happyOrErrorBloc.state == HappyOrErrorState.SKULL_INDEX){
+        AlertMultiplatform.showErrorDialog(context, "Generic error");
+        return SizedBox.shrink();
+      }
       return buildSuccessWidget(snapshot.data);
 
     } else if (snapshot.hasError) {
-      return buildErrorWidget(snapshot.error);
+      AlertMultiplatform.showErrorDialog(context, snapshot.error);
+      return SizedBox.shrink();
     }
 
     return buildLoadingWidget();
@@ -74,7 +87,7 @@ class ImageDetailsState extends State<ImageDetails>{
   Widget buildLoadingWidget(){
     return Padding(
       padding: const EdgeInsets.only(top: 40.0),
-      child: Center(child: ProgressIndicatorMultiplatform.build(context)),
+      child: Center(child: ProgressIndicatorMultiplatform.build(context))
     );
   }
 
@@ -89,25 +102,21 @@ class ImageDetailsState extends State<ImageDetails>{
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               buildTextTitle("Author: "),
-                buildText(imageDetailsModel.author),
-                SizedBox(height: VERTICAL_GAP),
-                buildTextTitle("URL: "),
-                buildText(imageDetailsModel.url),
-                SizedBox(height: VERTICAL_GAP),
-                buildTextTitle("Width: "),
-                buildText(imageDetailsModel.width.toString()),
-                SizedBox(height: VERTICAL_GAP),
-                buildTextTitle("Height: "),
-                buildText(imageDetailsModel.height.toString()),
-            ],
-          ),
-        ),
-      ),
+              buildText(imageDetailsModel.author),
+              SizedBox(height: VERTICAL_GAP),
+              buildTextTitle("URL: "),
+              buildText(imageDetailsModel.url),
+              SizedBox(height: VERTICAL_GAP),
+              buildTextTitle("Width: "),
+              buildText(imageDetailsModel.width.toString()),
+              SizedBox(height: VERTICAL_GAP),
+              buildTextTitle("Height: "),
+              buildText(imageDetailsModel.height.toString())
+            ]
+          )
+        )
+      )
     );
-  }
-  
-  Widget buildErrorWidget(Object error){
-    return Text("Error");
   }
 
   Widget buildTextTitle(String title){

@@ -27,7 +27,7 @@ class ImageDetailsScaffoldCupertino extends StatelessWidget{
 
   CupertinoNavigationBar buildNavigationBar(BuildContext context) {
     return CupertinoNavigationBar(
-      previousPageTitle: PhotoListScaffold.title,
+      previousPageTitle: PhotoListScaffold.TITLE,
       middle: Text(title),
     );
   }

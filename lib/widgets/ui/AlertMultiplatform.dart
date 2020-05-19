@@ -42,7 +42,7 @@ class AlertMultiplatform{
                 actions: [
                   FlatButton(
                     child: Text("OK"),
-                    onPressed: () => Navigator.of(context).pop(),
+                    onPressed: () => Navigator.of(context, rootNavigator: true).pop()
                   )
                 ]
             )

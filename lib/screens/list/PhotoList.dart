@@ -20,8 +20,7 @@ class PhotoList extends StatelessWidget{
 
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-              (context, index) => buildItem(index, imageWidthInPixels, imageHeightInPixels),
-              childCount: 1000
+              (context, index) => buildItem(index, imageWidthInPixels, imageHeightInPixels)
       )
     );
   }

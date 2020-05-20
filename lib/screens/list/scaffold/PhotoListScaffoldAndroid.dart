@@ -76,7 +76,11 @@ class _PhotoListState extends State<PhotoListScaffoldAndroid> {
                   floating: true,
                   actions: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(right: TopRightToggleButtons.PADDING),
+                      padding: const EdgeInsets.only(
+                          right: TopRightToggleButtons.PADDING,
+                          top: 5,
+                          bottom: 5
+                      ),
                       child: TopRightToggleButtons(),
                     )
                   ],

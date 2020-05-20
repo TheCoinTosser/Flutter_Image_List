@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterpresentation/screens/list/TopRightToggleButtons.dart';
 import 'package:flutterpresentation/screens/list/easteregg/BrentRamboWidget.dart';
 
-import 'PhotoList.dart';
+import '../PhotoList.dart';
 
 class PhotoListScaffoldAndroid extends StatefulWidget{
 

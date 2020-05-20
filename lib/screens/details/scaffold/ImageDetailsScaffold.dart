@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterpresentation/screens/details/ImageDetailsScaffoldCupertino.dart';
 
 import 'ImageDetailsScaffoldAndroid.dart';
+import 'ImageDetailsScaffoldCupertino.dart';
 
 class ImageDetailsScaffold extends StatelessWidget{
 

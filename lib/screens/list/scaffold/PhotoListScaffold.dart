@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutterpresentation/screens/list/PhotoListScaffoldCupertino.dart';
+import 'package:flutterpresentation/screens/list/scaffold/PhotoListScaffoldCupertino.dart';
 import 'package:flutterpresentation/screens/list/state/happyorerror/HappyOrErrorBloc.dart';
 
 import 'PhotoListScaffoldAndroid.dart';

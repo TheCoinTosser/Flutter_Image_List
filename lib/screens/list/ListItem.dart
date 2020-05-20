@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterpresentation/screens/details/ImageDetailsScaffold.dart';
+import 'package:flutterpresentation/screens/details/scaffold/ImageDetailsScaffold.dart';
 
 class ImageItem extends StatelessWidget{
 

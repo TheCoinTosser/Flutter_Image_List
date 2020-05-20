@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'ImageDetails.dart';
+import '../ImageDetails.dart';
 
 class ImageDetailsScaffoldAndroid extends StatelessWidget{
 

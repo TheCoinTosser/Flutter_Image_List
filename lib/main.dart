@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
-import 'package:flutterpresentation/screens/list/PhotoListScaffold.dart';
+import 'package:flutterpresentation/screens/list/scaffold/PhotoListScaffold.dart';
 
 void main() => runApp(MyApp());
 

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterpresentation/screens/details/ImageDetails.dart';
-import 'package:flutterpresentation/screens/list/PhotoListScaffold.dart';
+import 'package:flutterpresentation/screens/list/scaffold/PhotoListScaffold.dart';
 
 class ImageDetailsScaffoldCupertino extends StatelessWidget{
 

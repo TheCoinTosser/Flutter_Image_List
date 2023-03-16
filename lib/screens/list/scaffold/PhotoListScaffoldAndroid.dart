@@ -34,7 +34,7 @@ class _PhotoListState extends State<PhotoListScaffoldAndroid> {
 
   void onPresentIconTapped(BuildContext context){
 
-    final scaffold = Scaffold.of(context);
+    final scaffold = ScaffoldMessenger.of(context);
     if(_snackBarOpened){
       scaffold.hideCurrentSnackBar();
 
@@ -59,7 +59,9 @@ class _PhotoListState extends State<PhotoListScaffoldAndroid> {
     return MaterialApp(
         theme: ThemeData(
             primarySwatch: Colors.lightBlue,
-            accentColor: Colors.deepOrangeAccent,
+            colorScheme: ColorScheme.light(
+              secondary: Colors.deepOrangeAccent,
+            ),
             primaryTextTheme: TextTheme(
                 titleLarge: TextStyle(color: Colors.white)
             )

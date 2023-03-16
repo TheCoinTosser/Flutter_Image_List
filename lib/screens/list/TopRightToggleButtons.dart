@@ -17,7 +17,7 @@ class TopRightToggleButtonsState extends State<TopRightToggleButtons>{
 
   static const _BORDER_RADIUS = BorderRadius.all(Radius.circular(10));
 
-  List<bool> _buttonPressed = List(2);
+  List<bool> _buttonPressed = [false, false];
   HappyOrErrorBloc happyOrErrorBloc;
   Color _happyFaceColor;
   Color _skullColor;

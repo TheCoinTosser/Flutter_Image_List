@@ -8,7 +8,6 @@ class ImageItem extends StatelessWidget{
   static const Duration FADE_OUT_DURATION = Duration(milliseconds: 100);
   static const Duration FADE_IN_DURATION = Duration(milliseconds: 300);
   static const CARD_ELEVATION = 5.0;
-  static const CARD_ELEVATION_PRESSED = 20.0;
   static const CARD_RADIUS = 15.0;
 
   final int imageId;
@@ -25,15 +24,16 @@ class ImageItem extends StatelessWidget{
       padding: CARD_PADDING,
       child: Hero(
         tag: imageUrl,
-        child: RaisedButton(
-          elevation: CARD_ELEVATION,
-          clipBehavior: Clip.antiAlias,
-          padding: EdgeInsets.all(0.0),
-          color: Colors.white,
-          highlightElevation: CARD_ELEVATION_PRESSED,
-          shape: RoundedRectangleBorder(
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            elevation: CARD_ELEVATION,
+            padding: EdgeInsets.all(0.0),
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(CARD_RADIUS)
+            )
           ),
+          clipBehavior: Clip.antiAlias,
           onPressed: () => Navigator.push(
               context,
               buildRoute(context)

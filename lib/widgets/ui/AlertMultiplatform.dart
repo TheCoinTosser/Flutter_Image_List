@@ -39,7 +39,7 @@ class AlertMultiplatform{
                 content: _buildErrorBody(errorText),
                 elevation: 10,
                 actions: [
-                  FlatButton(
+                  TextButton(
                     child: Text("OK"),
                     onPressed: () => Navigator.of(context, rootNavigator: true).pop()
                   )

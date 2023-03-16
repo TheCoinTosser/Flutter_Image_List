@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterpresentation/extensions/Extensions.dart';
 import 'package:flutterpresentation/screens/list/ListItem.dart';

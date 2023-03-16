@@ -18,7 +18,7 @@ class ImageDetailsScaffoldAndroid extends StatelessWidget{
         theme: ThemeData(
             primarySwatch: Colors.lightBlue,
             primaryTextTheme: TextTheme(
-                headline6: TextStyle(color: Colors.white)
+                titleLarge: TextStyle(color: Colors.white)
             )
         ),
         home: Scaffold(

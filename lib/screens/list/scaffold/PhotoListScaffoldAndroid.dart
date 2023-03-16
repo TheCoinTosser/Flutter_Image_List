@@ -61,7 +61,7 @@ class _PhotoListState extends State<PhotoListScaffoldAndroid> {
             primarySwatch: Colors.lightBlue,
             accentColor: Colors.deepOrangeAccent,
             primaryTextTheme: TextTheme(
-                headline6: TextStyle(color: Colors.white)
+                titleLarge: TextStyle(color: Colors.white)
             )
         ),
         home: Scaffold(

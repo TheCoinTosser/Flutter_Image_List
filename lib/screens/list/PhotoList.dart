@@ -30,7 +30,7 @@ class PhotoList extends StatelessWidget{
     final imageId = index + 10;
     return ImageItem(
         imageId: imageId,
-        imageUrl: "https://i.picsum.photos/id/$imageId/$imageWidthInPixels/$imageHeightInPixels.jpg"
+        imageUrl: "https://picsum.photos/id/$imageId/$imageWidthInPixels/$imageHeightInPixels.jpg"
     );
   }
 }
